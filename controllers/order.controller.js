@@ -98,7 +98,7 @@ exports.deleteOrder = async (req, res) => {
     const order = await Order.findByIdAndDelete(orderId);
     if (!order) return res.status(404).json({ error: "Order not found" });
 
-    res.status(204).json({ message: "Order deleted" });
+    res.status(201).json({ message: "Order deleted successfully" });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: "Internal Server Error" });
